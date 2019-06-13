@@ -2,6 +2,22 @@ import React, { Component } from 'react'
 import Breadcrumb from './Breadcrumb';
 
 export class Blog extends Component {
+
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      Search : '' ,
+      
+   }
+  }
+  
+  _Search = (e) => {
+    this.setState({
+      Search : e.target.value 
+    })
+  }
+
     render() {
         return (
 <div>
@@ -148,12 +164,12 @@ export class Blog extends Component {
             </div>
           
           
-          <div className="span3">
+          <div className="span3"> 
               
             <h3 className="p-t-0">Search</h3>
             <div className="search-box">
               <a href="#/" className="search-icon"><i className="icon-search"></i></a>
-              {/* <input className="search" name="" value="Search"> */}
+              <input className="search" name="" value={this.state.Search} onChange={this._Search} />
             </div>  
 
             <h3>Categories</h3>
